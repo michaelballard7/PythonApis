@@ -10,9 +10,11 @@ def main():
         result.raise_for_status()
         printResults(result)
 
+    # throw any http errors
     except HTTPError as err:
         print("Error: {}".format(err))
 
+    # set an error for server timeouts
     except Timeout as err:
         print("Request code: {}".format(err))
 
